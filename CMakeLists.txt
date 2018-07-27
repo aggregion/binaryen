@@ -196,6 +196,11 @@ ELSE()
   ADD_LIBRARY(binaryen SHARED ${binaryen_SOURCES})
 ENDIF()
 
+install(TARGETS binaryen
+   LIBRARY DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR} 
+   ARCHIVE DESTINATION ${CMAKE_INSTALL_FULL_LIBDIR})
+
+
 SET(s2wasm_SOURCES
   src/tools/s2wasm.cpp
   src/wasm-emscripten.cpp
