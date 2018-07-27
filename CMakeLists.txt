@@ -177,10 +177,19 @@ ADD_SUBDIRECTORY(src/wasm)
 
 # Sources.
 
+file(GLOB wasm_sources "src/wasm/*.cpp")
+file(GLOB passes_sources "src/passes/*.cpp")
+file(GLOB support_sources "src/support/*.cpp")
+file(GLOB asmjs_sources "src/asmjs/*.cpp")
 
 SET(binaryen_SOURCES
   src/binaryen-c.cpp
+  ${wasm_sources}
+  ${passes_sources}
+  ${support_sources}
+  ${asmjs_sources}
 )
+
 IF(BUILD_STATIC_LIB)
   ADD_LIBRARY(binaryen STATIC ${binaryen_SOURCES})    
 ELSE()
